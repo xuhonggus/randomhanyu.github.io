@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+	<title>Vocabulary Card Deck</title>
+	<style>
+		.card {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #ccc;
+			font-size: 20px;
+			text-align: center;
+			height: 250px;
+		}
+		.card h1 {
+			font-size: 100px;
+			margin: 0;
+			padding: 0;
+			padding-top: 60px;
+		}
+	</style>
+	<script>
+		// Define vocabulary cards
+		var cards = [
+		{input: "朋友"},
+{input: "她"},
+{input: "去"},
+{input: "哪儿"},
+{input: "哪里"},
+{input: "那儿"},
+{input: "那里"},
+{input: "我们"},
+{input: "商店"},
+{input: "店"}, 
+{input: "回"},
+{input: "家"},
+{input: "zai哥哥"},
+{input: "他"},
+{input: "书店"},
+{input: "他"},
+{input: "书店"},
+{input: "了"},
+{input: "爸爸"}
+
+		];
+
+
+		// Shuffle function to randomize cards
+		function shuffle(array) {
+			for (var i = array.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+			return array;
+		}
+
+		// Remove card from deck
+		function removeCard() {
+			cards.shift();
+			showCard();
+		}
+
+		// Show current card
+		function showCard() {
+			if (cards.length > 0) {
+				var card = cards[0];
+				document.getElementById("input").innerHTML = card.input;
+			} else {
+				document.getElementById("input").innerHTML = "No cards left in deck.";
+			}
+		}
+
+		// Reset deck of cards
+		function resetDeck() {
+            cards = [
+            {input: "朋友"},
+{input: "她"},
+{input: "去"},
+{input: "哪儿"},
+{input: "哪里"},
+{input: "那儿"},
+{input: "那里"},
+{input: "我们"},
+{input: "商店"},
+{input: "店"}, 
+{input: "回"},
+{input: "家"},
+{input: "zai哥哥"},
+{input: "他"},
+{input: "书店"},
+{input: "他"},
+{input: "书店"},
+{input: "了"},
+{input: "爸爸"}
+
+		];
+			cards = shuffle(cards);
+			showCard();
+        }
+
+		// Initialize deck of cards
+		function initDeck() {
+			cards = shuffle(cards);
+			showCard();
+		}
+
+		window.onload = function() {
+			initDeck();
+		};
+
+        // Count number of cards
+		function countCards() {
+			document.getElementById("card-count").innerHTML = cards.length + " cards left in deck.";
+		}
+
+		window.onload = function() {
+			resetDeck();
+		};
+
+	</script>
+</head>
+<body>
+	<p style="font-size: 30px; text-align: center;">Level 5</p>
+	<div class="card">
+		<h1 id="input"></h1>
+
+	</div>
+	<div style="text-align: center;">
+    <a href="Level4.html" style="padding-right: 15px;"><button>Previous level</button></a>
+	<button onclick="removeCard()">Random</button>
+	<button onclick="resetDeck()">Reset</button>
+	<a href="Level6.html" style="padding-left: 15px"><button>Next level</button></a>
+	</div>
+    <div><p id="card-count"></p></div>
+    
+</body>

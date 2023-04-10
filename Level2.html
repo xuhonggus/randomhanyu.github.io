@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<head>
+	<title>Vocabulary Card Deck</title>
+	<style>
+		.card {
+			background-color: #f2f2f2;
+			border: 1px solid #ddd;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px #ccc;
+			font-size: 20px;
+			text-align: center;
+			height: 250px;
+		}
+		.card h1 {
+			font-size: 100px;
+			margin: 0;
+			padding: 0;
+			padding-top: 60px;
+		}
+	</style>
+	<script>
+		// Define vocabulary cards
+		var cards = [
+		{input: "bó"},
+{input: "bǒ"},
+{input: "bò"},
+{input: "jiū"},
+{input: "jiú"},
+{input: "jiǔ"},
+{input: "jiù"},
+{input: "sān"},
+{input: "sán"},
+{input: "sǎn"},
+{input: "sàn"},
+{input: "bāi"},
+{input: "bái"},
+{input: "bǎi"},
+{input: "bài"},
+{input: "ēr"},
+{input: "ér"},
+{input: "ěr"},
+{input: "èr"},
+{input: "yē"},
+{input: "yé"},
+{input: "yě"},
+{input: "yè"},
+{input: "ni,nü"},
+{input: "li,lü"},
+{input: "ji,jü"},
+{input: "qi,qü"},
+{input: "xi,xü"},
+{input: "nu,nü"},
+{input: "li,lü"},
+{input: "gu,jü"},
+{input: "ku,qu"},
+{input: "hu,xu"},
+{input: "ba,pa"},
+{input: "ban,pan"},
+{input: "bao,pao"},
+{input: "biao,piao"},
+{input: "búpà"},
+{input: "bǐaopí"},
+{input: "diāochán"},
+{input: "xīshī"},
+{input: "pǔbiàn"},
+{input: "piāobó"},
+{input: "péngbò"},
+{input: "pángbiān"},
+{input: "dìtú"},
+{input: "dàtǎ"},
+{input: "diàntī"},
+{input: "dòngtān"},
+{input: "dǔtú"}
+		];
+
+
+		// Shuffle function to randomize cards
+		function shuffle(array) {
+			for (var i = array.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+			}
+			return array;
+		}
+
+		// Remove card from deck
+		function removeCard() {
+			cards.shift();
+			showCard();
+		}
+
+		// Show current card
+		function showCard() {
+			if (cards.length > 0) {
+				var card = cards[0];
+				document.getElementById("input").innerHTML = card.input;
+			} else {
+				document.getElementById("input").innerHTML = "No cards left in deck.";
+			}
+		}
+
+		// Reset deck of cards
+		function resetDeck() {
+            cards = [
+            {input: "bó"},
+{input: "bǒ"},
+{input: "bò"},
+{input: "jiū"},
+{input: "jiú"},
+{input: "jiǔ"},
+{input: "jiù"},
+{input: "sān"},
+{input: "sán"},
+{input: "sǎn"},
+{input: "sàn"},
+{input: "bāi"},
+{input: "bái"},
+{input: "bǎi"},
+{input: "bài"},
+{input: "ēr"},
+{input: "ér"},
+{input: "ěr"},
+{input: "èr"},
+{input: "yē"},
+{input: "yé"},
+{input: "yě"},
+{input: "yè"},
+{input: "ni,nü"},
+{input: "li,lü"},
+{input: "ji,jü"},
+{input: "qi,qü"},
+{input: "xi,xü"},
+{input: "nu,nü"},
+{input: "li,lü"},
+{input: "gu,jü"},
+{input: "ku,qu"},
+{input: "hu,xu"},
+{input: "ba,pa"},
+{input: "ban,pan"},
+{input: "bao,pao"},
+{input: "biao,piao"},
+{input: "búpà"},
+{input: "bǐaopí"},
+{input: "diāochán"},
+{input: "xīshī"},
+{input: "pǔbiàn"},
+{input: "piāobó"},
+{input: "péngbò"},
+{input: "pángbiān"},
+{input: "dìtú"},
+{input: "dàtǎ"},
+{input: "diàntī"},
+{input: "dòngtān"},
+{input: "dǔtú"}
+		];
+			cards = shuffle(cards);
+			showCard();
+        }
+
+		// Initialize deck of cards
+		function initDeck() {
+			cards = shuffle(cards);
+			showCard();
+		}
+
+		window.onload = function() {
+			initDeck();
+		};
+
+        // Count number of cards
+		function countCards() {
+			document.getElementById("card-count").innerHTML = cards.length + " cards left in deck.";
+		}
+
+		window.onload = function() {
+			resetDeck();
+		};
+
+	</script>
+</head>
+<body>
+	<p style="font-size: 30px; text-align: center;">Level 2</p>
+	<div class="card">
+		<h1 id="input"></h1>
+
+	</div>
+	<div style="text-align: center;">
+    <a href="index.html" style="padding-right: 15px;"><button>Previous level</button></a>
+	<button onclick="removeCard()">Random</button>
+	<button onclick="resetDeck()">Reset</button>
+	<a href="Level3.html" style="padding-left: 15px;"><button>Next level</button></a>
+	</div>
+    <div><p id="card-count"></p></div>
+    
+</body>
